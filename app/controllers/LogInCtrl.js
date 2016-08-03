@@ -1,6 +1,6 @@
 "use strict";
 
-app.controller("LogInCtrl", function($scop, $location, AuthFactory){
+app.controller("LogInCtrl", function($scope, $location, AuthFactory){
 
 	$scope.login = function() {
 		AuthFactory.authWithProvider()
@@ -9,5 +9,4 @@ app.controller("LogInCtrl", function($scop, $location, AuthFactory){
 			$scope.$apply();
 		})
 	};
-
-})
+});
