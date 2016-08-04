@@ -9,6 +9,16 @@
 </head>
 <body ng-app="ReadIt">
 
+	<nav ng-controller='NavCtrl'>
+
+		<button type="button" ng-click="searchButton()">Search</button>
+		<button type="button" ng-click="homeButton()">Home</button>
+		<button type="button" ng-click="publicButton()" ng-hide>What's Hot</button>
+		<button type="button" ng-click="logout()">Logout</button>
+	</nav>
+		
+
+	<div ng-view></div>
 
 
 	<!-- Third Party Resources -->
@@ -21,7 +31,19 @@
 	<!-- application scripts -->
 	<script src="app/app.js"></script>
 
-	<!-- factories -->
+	<script src="app/values/FBCreds.js"></script>
+	<script src="app/values/BingCreds.js"></script>
+
 	<script src="app/factories/AuthFactory.js"></script>
+	<script src="app/factories/SearchFactory.js"></script>
+	<script src="app/factories/PostFactory.js"></script>
+	<script src="app/factories/UUID.js"></script>
+
+	<!-- controllers -->
+	<script src="app/controllers/LogInCtrl.js"></script>
+	<script src="app/controllers/HomeCtrl.js"></script>
+	<script src="app/controllers/SearchCtrl.js"></script>
+	<script src="app/controllers/NavCtrl.js"></script>
+	<script src="app/controllers/PublicCtrl.js"></script>
 </body>
 </html>

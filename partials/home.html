@@ -1,0 +1,7 @@
+<div class="container">
+	<h1>Welcome Home</h1>
+	<div ng-repeat="post in userPosts">
+		<p ng-click="openNewTab(post.linkUrl)">{{post.headline}}</p>
+		<button ng-click="delete(post)">Delete</button>
+	</div>
+</div>

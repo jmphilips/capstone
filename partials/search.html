@@ -1,0 +1,12 @@
+<div>
+	<h1>Add</h1>
+	<input type="" ng-model="searchText">
+	<button ng-click="getSearchTerm(searchText)">Search</button>
+	<div ng-repeat="story in headlines">
+		<div class="container">
+			<p ng-click="openNewTab(story.url)">{{story.name}}</p>
+			<img ng-src="{{story.image.thumbnail.contentUrl}}"/>
+			<button ng-click="addPost(story)">Add</button>
+		</div>
+	</div>
+</div>

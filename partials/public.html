@@ -1,0 +1,7 @@
+<h1>What's Hot</h1>
+<div ng-repeat="post in publicPosts">
+	<p>{{post.headline}}</p>
+	<p>Score: {{post.popular}}</p>
+	<button ng-click="plusOne(post)">UpVote</button>
+	<button ng-click="minusOne(post)">DownVote</button>
+</div>
