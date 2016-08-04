@@ -23,4 +23,8 @@ app.controller('NavCtrl', function($scope, $location){
 		$location.url("/home")
 	};
 
+	$scope.isLoggedIn = function() {
+		return ($location.url() === "/login")
+	};
+
 });

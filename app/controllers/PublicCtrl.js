@@ -1,7 +1,10 @@
 "use strict";
 
-app.controller('PublicCtrl', function($scope, PostFactory){
+app.controller('PublicCtrl', function($scope, PostFactory, $window){
 
+	$scope.openNewTab = function (someUrl) {
+		$window.open(someUrl);
+	};
 
 	PostFactory.getPublicPosts()
 	.then(function(news){

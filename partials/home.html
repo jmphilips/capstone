@@ -1,7 +1,9 @@
 <div class="container">
 	<h1>Welcome Home</h1>
 	<div ng-repeat="post in userPosts">
+		<img ng-src="{{post.thumbnail}}" alt="">
 		<p ng-click="openNewTab(post.linkUrl)">{{post.headline}}</p>
-		<button ng-click="delete(post)">Delete</button>
+		<button ng-click="delete(post)" class="waves-effect waves-teal btn-flat"><i class="small material-icons">delete</i></button>
 	</div>
 </div>
+
