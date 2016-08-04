@@ -13,4 +13,17 @@ app.controller('HomeCtrl', function($window, $q, $http, FirebaseUrl, $scope, Aut
 	.then(function(news){
 		$scope.userPosts = news;
 	});
+
+	$scope.delete = function(uniqueId) {
+		console.log(uniqueId.uuid);
+		PostFactory.deletePostsFB(uniqueId.uuid)
+		.then(function(){
+			PostFactory.getPostsFB(currentUser)
+			.then(function(news){
+		$scope.userPosts = news;
+		});
+	})
+
+		
+	};
 });

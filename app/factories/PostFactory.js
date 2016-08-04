@@ -4,7 +4,7 @@ app.factory("PostFactory", function($q, $http, FirebaseUrl){
 
 	const postPostsFB = function (newPost){
 		return $q(function(resolve, reject){
-			$http.post(`${FirebaseUrl}/posts.json`,
+			$http.put(`${FirebaseUrl}/posts/${newPost.uuid}.json`,
 			JSON.stringify(newPost))
 			.success(function(){
 				resolve()
@@ -31,11 +31,15 @@ app.factory("PostFactory", function($q, $http, FirebaseUrl){
 
 	const getPublicPosts = function(){
 		let publicPosts;
+		let publicPostsArray = [];
 		return $q(function(resolve, reject){
 			$http.get(`${FirebaseUrl}/posts.json`)
 			.success(function(anObject){
 				publicPosts = anObject;
-				resolve(publicPosts)
+				Object.keys(publicPosts).forEach(function(key){
+					publicPostsArray.push(publicPosts[key])
+				})
+				resolve(publicPostsArray)
 			})
 			.error(function(error){
 				reject(error);
@@ -43,6 +47,30 @@ app.factory("PostFactory", function($q, $http, FirebaseUrl){
 		});
 	};
 
+	const deletePostsFB = function(uniqeId){
+		return $q(function(resolve, reject){
+			$http.delete(`${FirebaseUrl}/posts/${uniqeId}.json`)
+			.success(function(){
+				resolve();
+			})
+			.error(function(error){
+				reject(error);
+			})
+		})
+	};
 
-	return {postPostsFB, getPostsFB, getPublicPosts}
+	const patchPostFB = function(uniqueId, data) {
+		return $q(function(resolve, reject){
+			$http.patch(`${FirebaseUrl}/posts/${uniqueId}.json`, data)
+			.success(function(patches){
+				resolve(patches)
+			})
+			.error(function(error){
+				reject(error)
+			})
+		})
+	};
+
+
+	return {postPostsFB, getPostsFB, getPublicPosts, deletePostsFB, patchPostFB}
 });

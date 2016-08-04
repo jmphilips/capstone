@@ -18,7 +18,8 @@ app.controller('SearchCtrl', function($scope, PostFactory, SearchFactory, $windo
 		linkUrl: "",
 		thumbnail: "",
 		uid: "",
-		popular: 0
+		popular: 0,
+		uuid: ""
 	};
 
 	$scope.addPost = function(storyObject){
@@ -26,6 +27,7 @@ app.controller('SearchCtrl', function($scope, PostFactory, SearchFactory, $windo
 		$scope.postTemplate.linkUrl = storyObject.url;
 		$scope.postTemplate.thumbnail = storyObject.image.thumbnail.contentUrl;
 		$scope.postTemplate.uid = AuthFactory.getUser();
+		$scope.postTemplate.uuid = uuid.v4();
 
 		PostFactory.postPostsFB($scope.postTemplate)
 		.then(function(){
