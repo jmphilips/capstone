@@ -63,7 +63,7 @@ app.factory("PostFactory", function($q, $http, FirebaseUrl){
 		return $q(function(resolve, reject){
 			$http.patch(`${FirebaseUrl}/posts/${uniqueId}.json`, data)
 			.success(function(patches){
-				resolve(patches)
+				resolve(patches);
 			})
 			.error(function(error){
 				reject(error)
@@ -71,6 +71,38 @@ app.factory("PostFactory", function($q, $http, FirebaseUrl){
 		})
 	};
 
+	const getSpecPostFB = function(uniqueId){
+		return $q(function(resolve,reject){
+			$http.get(`${FirebaseUrl}/posts/${uniqueId}.json`)
+			.success(function(specPostObject){
+				resolve(specPostObject);
+			})
+			.error(function(error){
+				reject(error)
+			})
+		})
+	};
 
-	return {postPostsFB, getPostsFB, getPublicPosts, deletePostsFB, patchPostFB}
+	const voteChecker = function(uniqueId) {
+		let voterArray;
+		return $q(function(resolve, reject) {
+			getSpecPostFB(uniqueId)
+			.then(function(posted) {
+				if (posted.voters) {
+					voterArray = {voters: posted.voters};
+					resolve(voterArray)
+				} else {
+					voterArray = {voters: []}
+					resolve(voterArray)
+				}
+			})
+			
+		});
+	};
+
+
+
+
+
+	return {postPostsFB, getPostsFB, getPublicPosts, deletePostsFB, patchPostFB, getSpecPostFB, voteChecker}
 });
