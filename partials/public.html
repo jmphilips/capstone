@@ -1,8 +1,19 @@
-<h1>What's Hot</h1>
-<div ng-repeat="post in publicPosts">
-	<img ng-src="{{post.thumbnail}}">
-	<p ng-click="openNewTab(post.linkUrl)">{{post.headline}}</p>
-	<p>Score: {{post.popular}}</p>
-	<button ng-click="plusOne(post)" class="waves-effect waves-teal btn-flat"><i class="small material-icons">thumb_up</i></button>
-	<button ng-click="minusOne(post)" class="waves-effect waves-teal btn-flat"><i class="small material-icons">thumb_down</i></button>
+
+
+<div class="container">
+<h1>Posts</h1>
+<div class="section">
+	
+
+<div class="row">
+	<div ng-repeat="post in publicPosts">
+			<p ng-click="openNewTab(post.linkUrl)" class="col s8">{{post.headline}}</p>
+			<p class="col s2">Score: {{post.popular}}</p>
+			<button  ng-click="plusOne(post)" ng-disabled="hasVoted(post.voters)" class="waves-effect waves-teal btn-flat col s1"><i class="small material-icons">thumb_up</i></button>
+			<button ng-click="minusOne(post)" ng-disabled="hasVoted(post.voters)" class="waves-effect waves-teal btn-flat col s1"><i class="small material-icons">thumb_down</i></button>
+	</div>
 </div>
+</div>
+</div>
+
+

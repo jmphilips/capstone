@@ -13,13 +13,19 @@ app.controller('SearchCtrl', function($scope, PostFactory, SearchFactory, $windo
 		});
 	};
 
+	$scope.pressEnter = function(keyEvent) {
+		if (keyEvent.which === 13) {
+			$scope.getSearchTerm();
+		};
+	};
+
 	$scope.postTemplate = {
 		headline: "",
 		linkUrl: "",
 		thumbnail: "",
 		uid: "",
 		popular: 0,
-		uuid: ""
+		uuid: "",
 	};
 
 	$scope.addPost = function(storyObject){

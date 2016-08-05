@@ -11,11 +11,15 @@
 <body ng-app="ReadIt">
 
 	<nav ng-controller='NavCtrl'>
-
-		<button type="button" ng-click="searchButton()" ng-hide="isLoggedIn()" class="waves-effect waves-teal btn-flat">Search</button>
-		<button type="button" ng-click="homeButton()" ng-hide="isLoggedIn()" class="waves-effect waves-teal btn-flat">Home</button>
-		<button type="button" ng-click="publicButton()" ng-hide="isLoggedIn()" class="waves-effect waves-teal btn-flat">What's Hot</button>
-		<button type="button" ng-click="logout()" ng-hide="isLoggedIn()" class="waves-effect waves-teal btn-flat">Logout</button>
+		<div class="nav-wrapper blue-grey">
+			<ul class="right">
+				<li><a ng-click="searchButton()" ng-hide="isLoggedIn()">Search</a></li>
+				<li><a ng-click="homeButton()" ng-hide="isLoggedIn()">Home</a></li>
+				<li><a ng-click="publicButton()" ng-hide="isLoggedIn()">Board</a></li>
+				<li><a ng-click="logout()" ng-hide="isLoggedIn()">Logout</a></li>
+			</ul>
+			
+		</div>
 	</nav>
 		
 
