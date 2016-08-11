@@ -9,8 +9,8 @@
 	<div ng-repeat="post in publicPosts">
 			<p ng-click="openNewTab(post.linkUrl)" class="col s8">{{post.headline}}</p>
 			<p class="col s2">Score: {{post.popular}}</p>
-			<button  ng-click="plusOne(post)" ng-disabled="hasVoted(post.voters)" class="waves-effect waves-teal btn-flat col s1"><i class="small material-icons">thumb_up</i></button>
-			<button ng-click="minusOne(post)" ng-disabled="hasVoted(post.voters)" class="waves-effect waves-teal btn-flat col s1"><i class="small material-icons">thumb_down</i></button>
+			<button  ng-click="plusOne(post)" ng-disabled="hasVoted(post.voters)" class="btn-flat col s1"><i class="small material-icons">thumb_up</i></button>
+			<button ng-click="minusOne(post)" ng-disabled="hasVoted(post.voters)" class="btn-flat col s1"><i class="small material-icons">thumb_down</i></button>
 	</div>
 </div>
 </div>

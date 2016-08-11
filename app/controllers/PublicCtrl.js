@@ -88,10 +88,10 @@ app.controller('PublicCtrl', function($scope, PostFactory, $window, AuthFactory)
 
 		let userId = AuthFactory.getUser();
 		let voted = false;
-
+		
 		if (array != undefined) {
 			for (var i = 0; i < array.length; i++) {
-			if (array[i] === userId) {
+			if (array[i] == userId) {
 				voted = true; 
 			} 
 		}
