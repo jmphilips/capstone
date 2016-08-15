@@ -9,8 +9,8 @@
 	<div ng-repeat="story in headlines">
 		<div class="container">
 			<div class="row">
-				<img class="col s1" ng-src="{{story.image.thumbnail.contentUrl}}"/>
-				<p class="col s9" ng-click="openNewTab(story.url)">{{story.name}}</p>
+				<img class="col s1 " ng-src="{{story.image.thumbnail.contentUrl}}"/>
+				<p class="col s9 a-link" ng-click="openNewTab(story.url)">{{story.name}}</p>
 				<button ng-click="addPost(story)" class="btn-flat"><i class="material-icons">add</i></button>
 			</div>
 	</div>

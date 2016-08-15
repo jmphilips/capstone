@@ -2,10 +2,12 @@
 	<h1>Home</h1>
 	<div ng-repeat="post in userPosts">
 		<div class="section">	
-			<div class="row">	
-				<img ng-src="{{post.thumbnail}}" class="col s1">
-				<p ng-click="openNewTab(post.linkUrl)" class="col s8">{{post.headline}}</p>
-				<button ng-click="delete(post)" class="waves-effect waves-teal btn-flat col s2"><i class="small material-icons">delete</i></button>
+			<div class="row">
+				<div class="card blue-grey">
+					<img ng-src="{{post.thumbnail}}" class="col s1">
+					<p ng-click="openNewTab(post.linkUrl)" class="col s8 a-link">{{post.headline}}</p>
+					<button ng-click="delete(post)" class="waves-effect waves-teal btn-flat col s2"><i class="small material-icons">delete</i></button>
+				</div>
 			</div>
 		</div>
 	</div>
