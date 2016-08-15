@@ -26,6 +26,7 @@ app.controller('SearchCtrl', function($scope, PostFactory, SearchFactory, $windo
 		uid: "",
 		popular: 0,
 		uuid: "",
+		
 	};
 
 	$scope.addPost = function(storyObject){

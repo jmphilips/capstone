@@ -1,13 +1,20 @@
 <div class="container">
-	<h1>Home</h1>
-	<div ng-repeat="post in userPosts">
-		<div class="section">	
-			<div class="row">	
-				<img ng-src="{{post.thumbnail}}" class="col s1">
-				<p ng-click="openNewTab(post.linkUrl)" class="col s8">{{post.headline}}</p>
-				<button ng-click="delete(post)" class="waves-effect waves-teal btn-flat col s2"><i class="small material-icons">delete</i></button>
-			</div>
-		</div>
-	</div>
-</div>
+<h1 class="center">Home</h1>
+   <div class="row">
+        <div ng-repeat="post in userPosts">
+          <div class="card horizontal blue-grey lighten-1" > 
+          	<div class="card-image">
+          		<img ng-src="{{post.thumbnail}}">
+          	</div>
 
+          <div class="card-stacked">
+            <div class="card-content white-text">
+              <p ng-click="openNewTab(post.linkUrl)" class="col s9 a-link">{{post.headline}}</p>
+              <a ng-click="delete(post)" class="btn-flat col s2"><i class="small material-icons">delete</i></a>
+            </div>
+           </div>
+          </div>
+        
+      </div>
+      </div>
+</div>
