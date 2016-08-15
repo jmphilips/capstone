@@ -3,19 +3,32 @@
 		<h1>Add</h1>
 		<input type="" ng-model="searchText" ng-keyPress="pressEnter($event)">
 		<button ng-click="getSearchTerm(searchText)" class="waves-effect waves-teal btn-flat"><i class="small material-icons">search</i></button>
-
+		<br>
+		<br>
 	</div>
 
-	<div ng-repeat="story in headlines">
-		<div class="container">
-			<div class="row">
-				<img class="col s1 " ng-src="{{story.image.thumbnail.contentUrl}}"/>
-				<p class="col s9 a-link" ng-click="openNewTab(story.url)">{{story.name}}</p>
-				<button ng-click="addPost(story)" class="btn-flat"><i class="material-icons">add</i></button>
+	
+	<div class="row">
+			<div ng-repeat="story in headlines">
+			<div class="card horizontal blue-grey lighten-1">
+
+				<div class="card-image">
+					<img ng-src="{{story.image.thumbnail.contentUrl}}">
+				</div>
+					<div class="card-stacked">
+						<div class="card-content white-text">
+							<p class="col s9 a-link" ng-click="openNewTab(story.url)">{{story.name}}</p>
+						
+						
+							<a ng-click="addPost(story)" class="btn-flat col s2 center"><i class="material-icons">add</i></a>
+						</div> 
+				</div>
 			</div>
+		</div>
 	</div>
-</div>
 
+
+</div>
 
 
 
